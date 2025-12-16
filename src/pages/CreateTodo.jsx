@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import TodoForm from '../components/TodoForm';
 import { addTodo } from '../services/api';
+import { useEffect } from 'react';
 
 const CreateTodo = () => {
   const navigate = useNavigate();
@@ -9,6 +10,10 @@ const CreateTodo = () => {
     addTodo({ id: Date.now(), ...data });
     navigate('/todos');
   };
+
+    useEffect(() => {
+    document.title('Create Todo');
+  });
 
   return (
     <div className="min-h-screen bg-gray-900 p-6 flex items-center justify-center">
